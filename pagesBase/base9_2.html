@@ -201,18 +201,34 @@
                 <span class="px-3">Menu</span>
             </nav>
 
-            <p class="h2 text-center pt-5 pb-3">Bienvenue sur mon carnet d'<a href="../index.html">Exercices
-                    JavaScript</a></p>
-            <p class="h4 text-center">La plupart des exercices que vous verrez ici se présenteront comme ceci :</p>
+            <p class="h2 text-center pt-5 pb-3">Menu Tableau</p>
 
-            <p class="h2 text-center py-3">Titre de l'exercice</p>
+            <p class="text-center">Créer le programme qui fournira un menu permettant d’obtenir les fonctionnalités
+                suivantes à partir
+                d’un tableau à une dimension :</p>
+            <ul>
+                <li>Affichage du contenu de tous les postes du tableau</li>
+                <li>Affichage du contenu d’un poste dont l’index est saisi au clavier</li>
+                <li>Affichage du maximum et de la moyenne des postes du tableau</li>
+            </ul>
 
-            <p class="h6 text-center">Consigne : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut
-                labore et
-                dolore magna aliqua.</p>
-            <p class="text-center pt-5">Champs de formulaire, bouton, en adéquation avec l'exercice</p>
+            <p class="text-center">Ce programme sera structuré de la manière suivante :</p>
+            <ul>
+                <li>une fonction <code>GetInteger</code> pour lire un entier au clavier, </li>
+                <li>une fonction <code>InitTab</code> pour créer et initialiser l’instance de tableau : le nombre de
+                    postes souhaité sera entré au clavier</li>
+                <li>une fonction <code>SaisieTab</code> pour permettre la saisie des différents postes du tableau</li>
+                <li>une fonction <code>AfficheTab</code> pour afficher tous les postes du tableau</li>
+                <li>une fonction <code>RechercheTab</code> pour afficher le contenu d’un poste de tableau dont le rang
+                    est saisi au clavier</li>
+                <li>une fonction <code>InfoTab</code> qui affichera le maximum et la moyenne des postes</li>
+            </ul>
 
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary text-center" id="base9_2ex">Déclencher l'exercice</button>
+            </div>
+
+            <p class="text-center pt-3" id="base9_2dom"></p>
 
 
         </div>
@@ -226,7 +242,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
         </script>
-        <script src="assets/js/sidebar.js">
+        <script src="../assets/js/script.js">
 
         </script>
 </body>

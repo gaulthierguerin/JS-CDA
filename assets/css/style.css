@@ -9,14 +9,23 @@ body {
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7em;
-    color: #999;
+    color: rgb(0, 0, 0);
 }
 
 p.h2 {
     color: black;
 }
+
+div.content>ul {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 400;
+    line-height: 1.7em;
+    color: black;
+}
+
 
 a,
 a:hover,
@@ -172,6 +181,17 @@ ul ul a {
     transform: none;
     opacity: 1;
     margin: 5px auto;
+}
+
+button.btn-primary {
+    background: #8873d5;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.315);
+}
+
+.screencaps {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
