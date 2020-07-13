@@ -394,14 +394,11 @@ if (base7_7) {
 
         base7_7dom.innerHTML = " ";
 
-        base7_7dom.innerHTML = "La table de multiplication de " + n + " par " + x + " est : <br>"
+        base7_7dom.innerHTML = "<p>La table de multiplication de " + n + " par " + x + " est : </p>"
         for (i = 1; i <= x; i++) {
             resultat = n * i;
-            if (i == x) {
-                base7_7dom.innerHTML += n + " x " + i + " = " + resultat;
-            } else {
-                base7_7dom.innerHTML += n + " x " + i + " = " + resultat + " <br> ";
-            }
+
+            base7_7dom.innerHTML += "<p class='tablemult'>" + n + " x " + i + " = " + resultat + "</p>";
         }
     })
 }
@@ -518,22 +515,22 @@ if (base7_11) {
             console.log(compteur);
             var userNb = parseInt(prompt("Devinez la valeur choisie par l'ordinateur " +
                 "(entre 1 et 1000)."));
-            compteur -= 1;
-            if (compteur == 0) {
+            compteur--;
+            if (compteur == -1) {
                 base7_11dom.innerHTML = "Perdu ! La bonne valeur valeur était : " + magic;
                 break;
-            } else if (userNb > magic && compteur >= 1) {
+            } else if (userNb > magic && compteur >= 0) {
                 alert("Plus bas ! \nIl vous reste " + compteur + " essais." +
                     "\nVotre dernière valeur était : " + userNb);
-            } else if (userNb < magic && compteur >= 1) {
+            } else if (userNb < magic && compteur >= 0) {
                 alert("Plus haut !\nIl vous reste " + compteur + " essais." +
                     "\nVotre dernière valeur était : " + userNb);
-            } else if (userNb == magic && compteur >= 1) {
+            } else if (userNb == magic && compteur >= 0) {
                 base7_11dom.innerHTML = "Bravo ! La bonne valeur était " + magic +
-                    "<br>Il vous restait " + compteur + " essais sur 10."
+                    "<br>Il vous restait " + compteur + " essai(s) sur 10."
             }
         }
-        while (userNb != magic && compteur > 0);
+        while (userNb != magic && compteur > -1);
     })
 }
 
@@ -558,7 +555,7 @@ if (base8_1) {
         }
 
         function afficheImg(image) { // Appelle une image dans l'html, utilisation de \" pour la source de l'image
-            base8_1dom.innerHTML += "<br><img src =\"" + image + "\">";
+            base8_1dom.innerHTML += "<br><img src =\"" + image + "\" title=\"papillon\">";
         }
 
         cube(3);
@@ -572,8 +569,8 @@ if (base8_1) {
 let base8_2 = document.getElementById("base8_2ex");
 
 if (base8_2) {
-    base8_2.addEventListener('click', function tableMultiplication(n) {
 
+    function tableMultiplication(n) {
         let i;
         let resultat;
 
@@ -582,16 +579,15 @@ if (base8_2) {
             resultat = n * i;
 
             table.innerHTML = "La table de multiplication de " + n + " est :"
-            if (i == 10) {
-                base8_2dom.innerHTML += n + " x " + i + " = " + resultat;
-            } else {
-                base8_2dom.innerHTML += n + " x " + i + " = " + resultat + " <br> ";
-            }
+
+            base8_2dom.innerHTML += "<p class='tablemult'>" + n + " x " + i + " = " + resultat + "</p>";
 
         }
+    }
 
+
+    base8_2.addEventListener('click', function () {
         let x = parseInt(prompt("Entrez un nombre pour connaître sa table de multiplication :"));
-
         tableMultiplication(x);
     })
 }
@@ -786,13 +782,47 @@ if (base8_4) {
     })
 }
 
+// base8_5
+
+let base8_5 = document.getElementById("base8_5ex");
+
+if (base8_5) {
+
+    function strTok(str1, str2, n) {
+        let liste;
+
+        liste = str1.split(str2);
+
+        if (str2 == " ") {
+            str2 = "espace";
+        }
+
+        base8_5dom.innerHTML = "<p class='text-center'>Vous avez entré : " + str1 + "</p>" +
+            "<p class='text-center'>Votre séparateur était \"" + str2 + "\".</p>" +
+            "<p class='text-center'>Vous avez choisi d'extraire le mot n°" + n +
+            " qui était : \"" + liste[n - 1] + "\".</p>";
+    }
+
+    base8_5.addEventListener('click', function () {
+
+        let phrase = prompt("Entrez plusieurs mots, séparés par le caractère" +
+            " de votre choix.");
+        let separateur = prompt("Entrez le séparateur que vous avez choisi.")
+        let num = prompt("Entrez la position (numérique : 1, 2, 3...)" +
+            "du mot que vous voulez extraire")
+
+        strTok(phrase, separateur, num);
+
+    })
+}
+
 // base9_1
 
 let base9_1 = document.getElementById("base9_1ex");
 
 if (base9_1) {
     base9_1.addEventListener('click', function () {
-        let n = parseInt(prompt("Saisir taille tableau"));
+        let n = parseInt(prompt("Saisir la taille du tableau"));
         let tableau = [n]; // taille du tableau définie par l'utilisateur
         let i = 0;
 
@@ -800,14 +830,9 @@ if (base9_1) {
             tableau[i] = prompt("Valeur de la case n°" + (i + 1) + "/" + n); // Saisie des données jusqu'à atteindre la taille max définie
             i++;
         }
-        i = 0;
 
-        base9_1dom.innerHTML = "Tableau :"
+        base9_1dom.innerHTML = "Tableau : " + tableau.join(", ")
 
-        while (i < n) {
-            base9_1dom.innerHTML += " " + tableau[i] + ","; // affiche les entrées une par une 
-            i++;
-        }
     })
 }
 
@@ -817,7 +842,6 @@ if (base9_2) {
     base9_2.addEventListener('click', function () {
         let tableau;
         let tabSize;
-        let fullTab;
         let menu;
         let i;
         let n;
