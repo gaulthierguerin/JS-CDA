@@ -31,9 +31,23 @@ div.content>ul {
 }
 
 code {
-    background: rgba(128, 128, 128, 0.212);
-
+    background: rgba(128, 128, 128, 0.315);
+    border: solid 2px rgba(128, 128, 128, 0);
+    border-radius: 5px;
 }
+
+.svg-inline--fa {
+    font-size: 3em;
+}
+
+span.mandatory {
+    color: red;
+}
+
+div#exoform {
+    display: none;
+}
+
 
 a,
 a:hover,
@@ -56,13 +70,6 @@ a:focus {
     box-shadow: none;
     outline: none !important;
     border: none;
-}
-
-.line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
 }
 
 /* ---------------------------------------------------
@@ -90,6 +97,7 @@ a:focus {
     margin-left: -250px;
     transform: rotateY(100deg);
 }
+
 
 #sidebar .sidebar-header {
     padding: 20px;
@@ -153,7 +161,14 @@ ul ul a {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
+    position: relative;
 }
+
+#content>span.arrows {
+    transition: all 0.3s;
+    position: absolute;
+}
+
 
 #sidebarCollapse {
     width: 40px;
@@ -193,6 +208,8 @@ ul ul a {
 
 button.btn-primary {
     background: #8873d5;
+    border: #8873d5;
+    border-radius: 25px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.315);
 }
 

@@ -7,6 +7,14 @@ $(document).ready(function () {
     });
 });
 
+//tooltips BS
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+
+
+
 function capitalizeFirstLetter(string) { // met la première lettre d'une string en majuscule
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -992,5 +1000,14 @@ if (base9_4) {
         bubbleSort(tab9_4);
         base9_4dom.innerHTML += "<br>Tableau après le tri : " + tab9_4.join(", ");
         console.log(tab9_4);
+    })
+}
+
+let contactForm = document.getElementById("formEx");
+
+if (contactForm) {
+    contactForm.addEventListener('click', function () {
+        document.getElementById("exoform").style.display = "block";
+        document.getElementById("consignes").style.display = "none";
     })
 }

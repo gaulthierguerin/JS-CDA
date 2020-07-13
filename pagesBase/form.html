@@ -159,27 +159,90 @@
 
             <p class="h2 text-center pt-5 pb-3">Formulaire de contact</p>
 
-            <p class="text-center">Réaliser un formulaire "contact.html" correspondant au modèle cidessous, avec les
-                contraintes suivantes :
-            </p>
-            <ul>
-                <li>Le formulaire sera envoyé grâce à la méthode "Post" .</li>
-                <li>La "Société" doit comporter au moins 1 caractère.</li>
-                <li>La "Personne à contacter" doit comporter au moins 1 caractère</li>
-                <li>Le "Code postal" doit comporter 5 caractères numériques.</li>
-                <li>La "Ville" doit comporter au moins 1 caractère.</li>
-                <li>L'e-mail doit comporter au moins le caractère "@".</li>
-            </ul>
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-primary text-center" id="base9_4ex">Déclencher l'exercice</button>
+            <div id="consignes">
+                <p class="text-center">Réaliser un formulaire "contact.html" correspondant au modèle cidessous, avec les
+                    contraintes suivantes :
+                </p>
+                <ul>
+                    <li>Le formulaire sera envoyé grâce à la méthode "Post" .</li>
+                    <li>La "Société" doit comporter au moins 1 caractère.</li>
+                    <li>La "Personne à contacter" doit comporter au moins 1 caractère</li>
+                    <li>Le "Code postal" doit comporter 5 caractères numériques.</li>
+                    <li>La "Ville" doit comporter au moins 1 caractère.</li>
+                    <li>L'e-mail doit comporter au moins le caractère "@".</li>
+                </ul>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary text-center" id="formEx">Déclencher l'exercice</button>
+                </div>
             </div>
 
-            <p class="text-center pt-3" id="base9_4dom"></p>
+            <div class="container" id="exoform">
+                <p class="h3">Vos coordonnées :</p>
+                <p class="h6"><span class="mandatory">*</span> Ces champs sont obligatoires</p>
+                <form action="POST">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputSociete">Société <span class="mandatory">*</span></label>
+                            <input type="text" class="form-control" id="inputSociete">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputContact">Personne à contacter <span class="mandatory">*</span></label>
+                            <input type="text" class="form-control" id="inputContact">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAdresse">Adresse de l'entreprise <span class="mandatory">*</span></label>
+                        <input type="text" class="form-control" id="inputAdresse">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-groupe col-md-6">
+                            <label for="inputCodePostal">Code Postal <span class="mandatory">*</span></label>
+                            <input type="text" class="form-control" id="inputCodePostal">
+                        </div>
+                        <div class="form-groupe col-md-6">
+                            <label for="inputVille">Ville <span class="mandatory">*</span></label>
+                            <input type="text" class="form-control" id="inputVille">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="inputEmail">E-mail <span class="mandatory">*</span></label>
+                        <input type="email" class="form-control" id="inputEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTel">Téléphone</label>
+                        <input type="tel" class="form-control" id="inputTel">
+                    </div>
+                    <div class="form-group">
+                        <label for="selectTechEnv">Selectionnez l'environnement technique du projet</label>
+                        <select name="Environnement Technique" class="form-control mb-1" id="selectTechEnv">
+                            <option value="default" selected>Choisissez</option>
+                            <option value="access">Access</option>
+                            <option value="java">Java</option>
+                            <option value="delphi">Delphi</option>
+                            <option value="windev">Windev</option>
+                            <option value="visualBasic">Visual Basic</option>
+                            <option value="powerBuilder">Power Builder</option>
+                            <option value="internet">Internet</option>
+                            <option value="intranet">Intranet</option>
+                            <option value="windowsNT">Windows NT</option>
+                            <option value="unix">Unix</option>
+                            <option value="SQLServer">SQL Server</option>
+                            <option value="oracle">Oracle</option>
+                            <option value="autres">Autres</option>
+                        </select>
+                        <textarea name="Liste environnement technique" class="form-control" id="inputTechEnv" cols="20"
+                            rows="10"></textarea>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                        <button type="reset" class="btn btn-secondary">Annuler</button>
+                    </div>
 
-            <div class="d-flex justify-content-between">
+                </form>
+            </div>
+
+            <span class="d-flex arrows fixed-bottom mb-2 ml-3">
                 <a href="base9_4.html" data-toggle="tooltip" data-placement="right" title="Précédent"><i
                         class="fa fa-arrow-left" aria-hidden="true"></i></a>
-            </div>
+            </span>
 
         </div>
 
