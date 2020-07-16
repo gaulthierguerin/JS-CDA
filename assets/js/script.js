@@ -1003,11 +1003,283 @@ if (base9_4) {
     })
 }
 
+//formulaire
+
 let contactForm = document.getElementById("formEx");
 
 if (contactForm) {
+
     contactForm.addEventListener('click', function () {
         document.getElementById("exoform").style.display = "block";
         document.getElementById("consignes").style.display = "none";
     })
+
+    let form = document.getElementById("form");
+
+    //recupération des id des inputs
+    let inputSociete = document.getElementById("inputSociete");
+    let inputContact = document.getElementById("inputContact");
+    let inputAdresse = document.getElementById("inputAdresse");
+    let inputCodePostal = document.getElementById("inputCodePostal");
+    let inputVille = document.getElementById("inputVille");
+    let inputEmail = document.getElementById("inputEmail");
+    let selectTechEnv = document.getElementById("selectTechEnv");
+    let inputTechEnv = document.getElementById("inputTechEnv");
+
+    //récupération des id des alerts
+    let alertSociete = document.getElementById("alertSociete");
+    let alertContact = document.getElementById("alertContact");
+    let alertAdresse = document.getElementById("alertAdresse");
+    let alertCodePostal = document.getElementById("alertCodePostal");
+    let alertVille = document.getElementById("alertVille");
+    let alertEmail = document.getElementById("alertEmail");
+    let alertTechEnv = document.getElementById("alertTechEnv");
+    let alertForm = document.getElementById("alertForm")
+
+    //récupération des champs valides
+
+    let champsValides = [false, false, false, false, false, false, false];
+    console.log(champsValides);
+
+
+    //création des regex
+    let RegExCP = /^\d{5}$/; //n'accepte qu'une valeur à 5 chiffres
+    let RegExMail = /^(\S+@\S+)\.\S+$/; //n'autorise pas les espaces avant/après le "@" et le "."
+    let RegExNomVille = /^[\w\-\s]+$/; //accepte lettres, tirets, espaces
+    let RegExSteAdresseTech = /^[(\s\D)*\d]+$/;
+
+    // event listener
+
+    //reset formulaire
+
+    let resetForm = document.getElementById("buttonReset");
+
+    resetForm.addEventListener('click', function () {
+        alertSociete.style.display = "none";
+        inputSociete.style.borderColor = "";
+        inputSociete.style.boxShadow = "";
+
+        alertContact.style.display = "none";
+        inputContact.style.borderColor = "";
+        inputContact.style.boxShadow = "";
+
+        alertAdresse.style.display = "none";
+        inputAdresse.style.borderColor = "";
+        inputAdresse.style.boxShadow = "";
+
+        alertCodePostal.style.display = "none";
+        inputCodePostal.style.borderColor = "";
+        inputCodePostal.style.boxShadow = "";
+
+        alertVille.style.display = "none";
+        inputVille.style.borderColor = "";
+        inputVille.style.boxShadow = "";
+
+        alertEmail.style.display = "none";
+        inputEmail.style.borderColor = "";
+        inputEmail.style.boxShadow = "";
+
+        alertTechEnv.style.display = "none";
+        inputTechEnv.style.borderColor = "";
+        inputTechEnv.style.boxShadow = "";
+        inputTechEnv.innerHTML = "";
+
+        champsValides = [false, false, false, false, false, false, false];
+
+    })
+
+    //vérification champs Société
+    inputSociete.addEventListener('blur', function () {
+        console.log(inputSociete.value);
+        if (inputSociete.value == "") {
+            alertSociete.style.display = "block";
+            alertSociete.innerHTML = "Ce champs doit être renseigné.";
+            inputSociete.style.borderColor = "red";
+            inputSociete.style.boxShadow = "0px 0px 5px red";
+
+        } else if (RegExSteAdresseTech.test(inputSociete.value) == false) {
+            alertSociete.style.display = "block";
+            alertSociete.innerHTML = "Ce champs n'accepte que les lettres, tirets, nombres et espaces.";
+            inputSociete.style.borderColor = "red";
+            inputSociete.style.boxShadow = "0px 0px 5px red";
+
+        } else if (RegExSteAdresseTech.test(inputSociete.value) == true) {
+            alertSociete.innerHTML = "";
+            alertSociete.style.display = "none";
+            inputSociete.style.borderColor = "green";
+            inputSociete.style.boxShadow = "0px 0px 5px green";
+            champsValides[0] = true;
+        }
+
+    })
+
+    // vérification champs Contact
+    inputContact.addEventListener('blur', function () {
+        console.log(inputContact.value);
+        if (inputContact.value == "") {
+            alertContact.style.display = "block";
+            alertContact.innerHTML = "Ce champs doit être renseigné.";
+            inputContact.style.borderColor = "red";
+            inputContact.style.boxShadow = "0px 0px 5px red";
+
+        } else if (RegExNomVille.test(inputContact.value) == false) {
+            alertContact.style.display = "block";
+            alertContact.innerHTML = "Ce champs n'accepte que les lettres, tirets et espaces.";
+            inputContact.style.borderColor = "red";
+            inputContact.style.boxShadow = "0px 0px 5px red";
+
+        } else if (RegExNomVille.test(inputContact.value) == true) {
+            alertContact.innerHTML = "";
+            alertContact.style.display = "none";
+            inputContact.style.borderColor = "green";
+            inputContact.style.boxShadow = "0px 0px 5px green";
+            champsValides[1] = true;
+        }
+
+    })
+
+    // vérification champs Adresse
+    inputAdresse.addEventListener('blur', function () {
+        console.log(inputAdresse.value);
+        if (inputAdresse.value == "") {
+            alertAdresse.style.display = "block";
+            alertAdresse.innerHTML = "Ce champs doit être renseigné.";
+            inputAdresse.style.borderColor = "red";
+            inputAdresse.style.boxShadow = "0px 0px 5px red";
+
+        } else if (RegExSteAdresseTech.test(inputAdresse.value) == false) {
+            alertAdresse.style.display = "block";
+            alertAdresse.innerHTML = "Ce champs n'accepte que les lettres, tirets, nombres, et espaces.";
+            inputAdresse.style.borderColor = "red";
+            inputAdresse.style.boxShadow = "0px 0px 5px red";
+
+        } else if (RegExSteAdresseTech.test(inputAdresse.value) == true) {
+            alertAdresse.innerHTML = "";
+            alertAdresse.style.display = "none";
+            inputAdresse.style.borderColor = "green";
+            inputAdresse.style.boxShadow = "0px 0px 5px green";
+            champsValides[2] = true;
+        }
+
+    })
+
+    // vérification champs Code Postal
+    inputCodePostal.addEventListener('blur', function () {
+        console.log(inputCodePostal.value);
+        if (inputCodePostal.value == "") {
+            alertCodePostal.style.display = "block";
+            alertCodePostal.innerHTML = "Ce champs doit être renseigné.";
+            inputCodePostal.style.borderColor = "red";
+            inputCodePostal.style.boxShadow = "0px 0px 5px red";
+        } else if (RegExCP.test(inputCodePostal.value) == false) {
+            alertCodePostal.style.display = "block";
+            alertCodePostal.innerHTML = "Ce champs doit contenir 5 caractères.";
+            inputCodePostal.style.borderColor = "red";
+            inputCodePostal.style.boxShadow = "0px 0px 5px red";
+        } else if (RegExCP.test(inputCodePostal.value) == true) {
+            alertCodePostal.innerHTML = "";
+            alertCodePostal.style.display = "none";
+            inputCodePostal.style.borderColor = "green";
+            inputCodePostal.style.boxShadow = "0px 0px 5px green";
+            champsValides[3] = true;
+        }
+
+    })
+
+    // vérification champs Ville
+    inputVille.addEventListener('blur', function () {
+        console.log(inputVille.value);
+        if (inputVille.value == "") {
+            alertVille.style.display = "block";
+            alertVille.innerHTML = "Ce champs doit être renseigné.";
+            inputVille.style.borderColor = "red";
+            inputVille.style.boxShadow = "0px 0px 5px red";
+        } else if (RegExNomVille.test(inputVille.value) == false) {
+            alertVille.style.display = "block";
+            alertVille.innerHTML = "Ce champs n'accepte que les lettres, tirets et espaces.";
+            inputVille.style.borderColor = "red";
+            inputVille.style.boxShadow = "0px 0px 5px red";
+        } else if (RegExNomVille.test(inputVille.value) == true) {
+            alertVille.innerHTML = "";
+            alertVille.style.display = "none";
+            inputVille.style.borderColor = "green";
+            inputVille.style.boxShadow = "0px 0px 5px green";
+            champsValides[4] = true;
+        }
+
+    })
+
+    // vérification champs Email
+    inputEmail.addEventListener('blur', function () {
+        console.log(inputEmail.value);
+        if (inputEmail.value == "") {
+            alertEmail.style.display = "block";
+            alertEmail.innerHTML = "Ce champs doit être renseigné.";
+            inputEmail.style.borderColor = "red";
+            inputEmail.style.boxShadow = "0px 0px 5px red";
+        } else if (RegExMail.test(inputEmail.value) == false) {
+            alertEmail.style.display = "block";
+            alertEmail.innerHTML = "Ce champs doit contenir une adresse mail au format xx(.x)@yy.zz";
+            inputEmail.style.borderColor = "red";
+            inputEmail.style.boxShadow = "0px 0px 5px red";
+        } else if (RegExMail.test(inputEmail.value) == true) {
+            alertEmail.innerHTML = "";
+            alertEmail.style.display = "none";
+            inputEmail.style.borderColor = "green";
+            inputEmail.style.boxShadow = "0px 0px 5px green";
+            champsValides[5] = true;
+        }
+
+    })
+
+    // vérification select
+    selectTechEnv.addEventListener('change', function () {
+        console.log(selectTechEnv.value);
+        if (selectTechEnv.value == "Autres") {
+            inputTechEnv.textContent += selectTechEnv.value + " : ";
+        } else {
+            inputTechEnv.textContent += selectTechEnv.value + ", ";
+            inputTechEnv.style.borderColor = "green";
+            inputTechEnv.style.boxShadow = "0px 0px 5px green";
+            champsValides[6] = true;
+        }
+    })
+
+    // vérification champs Environnement Technique
+    inputTechEnv.addEventListener('blur', function () {
+        if (inputTechEnv.value == "") {
+            alertTechEnv.style.display = "block";
+            alertTechEnv.innerHTML = "Ce champs doit être renseigné.";
+            inputTechEnv.style.borderColor = "red";
+            inputTechEnv.style.boxShadow = "0px 0px 5px red";
+        } else if (RegExSteAdresseTech.test(inputTechEnv.value) == false) {
+            alertTechEnv.style.display = "block";
+            alertTechEnv.innerHTML = "Ce champs n'accepte que les lettres, tirets, nombres, et espaces.";
+            inputTechEnv.style.borderColor = "red";
+            inputTechEnv.style.boxShadow = "0px 0px 5px red";
+        } else if (RegExSteAdresseTech.test(inputTechEnv.value) == true) {
+            alertTechEnv.innerHTML = "";
+            alertTechEnv.style.display = "none";
+            inputTechEnv.style.borderColor = "green";
+            inputTechEnv.style.boxShadow = "0px 0px 5px green";
+            champsValides[6] = true;
+        }
+    })
+
+    //envoi du formulaire
+
+    form.addEventListener('submit', function () {
+        e.preventDefault();
+
+        if (champsValides.includes(false)) {
+            e.preventDefault();
+            alertForm.innerHTML = "Veuillez renseigner le formulaire correctement.";
+            return false;
+        } else {
+            return true;
+            // form.submit();
+        }
+
+    })
+
 }

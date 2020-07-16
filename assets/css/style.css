@@ -48,6 +48,10 @@ div#exoform {
     display: none;
 }
 
+div.alert {
+    display: none;
+}
+
 
 a,
 a:hover,
@@ -167,6 +171,7 @@ ul ul a {
 #content>span.arrows {
     transition: all 0.3s;
     position: absolute;
+    width: 55px;
 }
 
 
@@ -212,6 +217,14 @@ button.btn-primary {
     border-radius: 25px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.315);
 }
+
+button.btn-secondary {
+    background: #5A6268;
+    border: #5A6268;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.315);
+}
+
 
 .screencaps {
     display: block;

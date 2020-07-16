@@ -157,9 +157,9 @@
                 <span class="px-3">Menu</span>
             </nav>
 
-            <p class="h2 text-center pt-5 pb-3">Formulaire de contact</p>
 
             <div id="consignes">
+                <p class="h2 text-center pt-5 pb-3">Formulaire de contact</p>
                 <p class="text-center">Réaliser un formulaire "contact.html" correspondant au modèle cidessous, avec les
                     contraintes suivantes :
                 </p>
@@ -177,65 +177,93 @@
             </div>
 
             <div class="container" id="exoform">
+
                 <p class="h3">Vos coordonnées :</p>
                 <p class="h6"><span class="mandatory">*</span> Ces champs sont obligatoires</p>
-                <form action="POST">
+                <div class="alert alert-danger mt-1" id="alertForm"></div>
+
+                <form action="http://bienvu.net/script.php" method="POST" id="form">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputSociete">Société <span class="mandatory">*</span></label>
-                            <input type="text" class="form-control" id="inputSociete">
+                            <input type="text" class="form-control" name="Société" id="inputSociete"
+                                placeholder="Base64">
+                            <div class="alert alert-danger mt-1" role="alert" id="alertSociete"></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputContact">Personne à contacter <span class="mandatory">*</span></label>
-                            <input type="text" class="form-control" id="inputContact">
+                            <input type="text" class="form-control" name="Contact" id="inputContact"
+                                placeholder="Dave Loper">
+                            <div class="alert alert-danger mt-1" role="alert" id="alertContact"></div>
+
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="inputAdresse">Adresse de l'entreprise <span class="mandatory">*</span></label>
-                        <input type="text" class="form-control" id="inputAdresse">
+                        <input type="text" class="form-control" name="Adresse" id="inputAdresse"
+                            placeholder="64, Avenue de la Base">
+                        <div class="alert alert-danger mt-1" role="alert" id="alertAdresse"></div>
                     </div>
+
                     <div class="form-row">
                         <div class="form-groupe col-md-6">
                             <label for="inputCodePostal">Code Postal <span class="mandatory">*</span></label>
-                            <input type="text" class="form-control" id="inputCodePostal">
+                            <input type="text" class="form-control" maxlength="5" name="Code Postal"
+                                id="inputCodePostal" placeholder="64000">
+                            <div class="alert alert-danger mt-1" role="alert" id="alertCodePostal"></div>
                         </div>
+
                         <div class="form-groupe col-md-6">
                             <label for="inputVille">Ville <span class="mandatory">*</span></label>
-                            <input type="text" class="form-control" id="inputVille">
+                            <input type="text" class="form-control" name="Ville" id="inputVille"
+                                placeholder="Baseville">
+                            <div class="alert alert-danger mt-1" role="alert" id="alertVille"></div>
                         </div>
                     </div>
+
                     <div class="form-group mt-3">
                         <label for="inputEmail">E-mail <span class="mandatory">*</span></label>
-                        <input type="email" class="form-control" id="inputEmail">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputTel">Téléphone</label>
-                        <input type="tel" class="form-control" id="inputTel">
-                    </div>
-                    <div class="form-group">
-                        <label for="selectTechEnv">Selectionnez l'environnement technique du projet</label>
-                        <select name="Environnement Technique" class="form-control mb-1" id="selectTechEnv">
-                            <option value="default" selected>Choisissez</option>
-                            <option value="access">Access</option>
-                            <option value="java">Java</option>
-                            <option value="delphi">Delphi</option>
-                            <option value="windev">Windev</option>
-                            <option value="visualBasic">Visual Basic</option>
-                            <option value="powerBuilder">Power Builder</option>
-                            <option value="internet">Internet</option>
-                            <option value="intranet">Intranet</option>
-                            <option value="windowsNT">Windows NT</option>
-                            <option value="unix">Unix</option>
-                            <option value="SQLServer">SQL Server</option>
-                            <option value="oracle">Oracle</option>
-                            <option value="autres">Autres</option>
-                        </select>
-                        <textarea name="Liste environnement technique" class="form-control" id="inputTechEnv" cols="20"
-                            rows="10"></textarea>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                        <button type="reset" class="btn btn-secondary">Annuler</button>
+                        <input type="email" class="form-control" name="Mail" id="inputEmail"
+                            placeholder="dave.loper@gmail.com">
+                        <div class="alert alert-danger mt-1" role="alert" id="alertEmail"></div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="inputTel">Téléphone</label>
+                        <input type="tel" class="form-control" name="Téléphone" id="inputTel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="selectTechEnv">Selectionnez l'environnement technique du projet <span
+                                class="mandatory">*</span></label>
+                        <select class="form-control mb-1" id="selectTechEnv">
+                            <option value="default" selected disabled>Choisissez</option>
+                            <option value="Access">Access</option>
+                            <option value="Java">Java</option>
+                            <option value="Delphi">Delphi</option>
+                            <option value="Windev">Windev</option>
+                            <option value="Visual Basic">Visual Basic</option>
+                            <option value="Power Builder">Power Builder</option>
+                            <option value="Internet">Internet</option>
+                            <option value="Intranet">Intranet</option>
+                            <option value="Windows NT">Windows NT</option>
+                            <option value="Unix">Unix</option>
+                            <option value="SQLServer">SQL Server</option>
+                            <option value="Oracle">Oracle</option>
+                            <option value="Autres">Autres</option>
+                        </select>
+
+                        <textarea name="Liste environnement technique" class="form-control" id="inputTechEnv"
+                            rows="5"></textarea>
+
+                        <div class="alert alert-danger mt-1" role="alert" id="alertTechEnv"></div>
+
+                        <div class="d-flex justify-content-end mt-2">
+                            <button type="reset" class="btn btn-secondary mr-1" id="buttonReset">Annuler</button>
+                            <button type="submit" class="btn btn-primary ml-1" id="buttonSubmit">Envoyer</button>
+                        </div>
+                    </div>
                 </form>
             </div>
 
