@@ -10,7 +10,7 @@ $(document).ready(function () {
 //tooltips BS
 
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip() // suivant / précendent sur les flèches de navigation
 })
 
 
@@ -23,7 +23,7 @@ function capitalizeFirstLetter(string) { // met la première lettre d'une string
 let base4 = document.getElementById("base4ex"); // récupération bouton
 
 if (base4) { // s'assure de la page
-    base4.addEventListener('click', function () {
+    base4.addEventListener('click', function () { // sur clic du bouton
         let lastname = prompt("Entrez votrez nom");
         let firstname = prompt("Entrez votre prénom");
         let base4dom = document.getElementById('base4dom');
@@ -44,10 +44,10 @@ if (base6_1) {
     base6_1.addEventListener('click', function () {
 
         let n = prompt("Entrez un nombre :");
-        if (isNaN(n)) {
+        if (isNaN(n)) { // vérification de l'input
             do {
                 n = prompt("Veuillez entrez un nombre");
-            } while (isNaN(n));
+            } while (isNaN(n)); //boucle jusqu'à l'entrée d'une valeur acceptée (ici, un nombre)
         }
         x = n % 2;
         if (x != 0) {
@@ -230,25 +230,26 @@ let base7_1 = document.getElementById("base7_1ex");
 if (base7_1) {
     base7_1.addEventListener('click', function () {
         let compteur = 1;
-        let listPrenoms = "";
+        let listePrenoms = "";
         let prenom;
 
         do {
-            prenom = window.prompt("Saisissez le prénom n°" + compteur +
+            prenom = prompt("Saisissez le prénom n°" + compteur +
                 "\nCliquez sur Annuler ou laissez pour arrêter la saisie");
 
             if (prenom == null || prenom == "") {
                 break;
             }
-            compteur++;
-            if (listPrenoms == "") {
-                listPrenoms += (prenom);
-                continue;
+
+            if (listePrenoms == "") {
+                listePrenoms += (prenom);
+            } else {
+                listePrenoms += (", " + prenom);
             }
-            listPrenoms += (", " + prenom);
+            compteur++;
         } while (prenom != "" && prenom != null)
 
-        base7_1dom.innerHTML = "Vous avez saisi " + (compteur - 1) + " prénom(s) : <p>" + listPrenoms + "</p>";
+        base7_1dom.innerHTML = "Vous avez saisi " + (compteur - 1) + " prénom(s) : <p>" + listePrenoms + "</p>";
 
     })
 }
@@ -262,12 +263,13 @@ if (base7_2) {
         let i = 0;
         let n = parseInt(prompt("Saisir un nombre"));
         let tableau = []
-        for (i = (n - 1); i != 0; i--) {
-            tableau.push(" " + i);
+        for (i = 1; i < n; i++) {
+            tableau.push(i); // i va de 1 à n-1 en introduisant sa valeur dans le tableau à chaque boucle
         }
 
-        base7_2dom.innerHTML = "Les entiers inférieurs à N sont :" +
-            tableau.sort();
+
+        base7_2dom.innerHTML = "Les entiers inférieurs à " + n + " sont : " +
+            tableau.join(", ");
     })
 }
 
@@ -280,13 +282,13 @@ if (base7_3) {
         let n = 0;
         let total = 0;
 
-        n = parseInt(prompt("Entrez un premier nombre :"));
+        n = parseInt(prompt("Entrez un nombre :"));
 
         for (i = (n - 1); i != 0; i--) {
             total += i;
         }
 
-        base7_3dom.innerHTML = "La somme des entiers inférieurs à N est : " + total;
+        base7_3dom.innerHTML = "La somme des entiers inférieurs à " + n + " est : " + total;
     })
 }
 
@@ -1057,7 +1059,7 @@ if (contactForm) {
     //reset formulaire
 
 
-    resetForm.addEventListener('click', function () {
+    resetForm.addEventListener('click', function () { //remet à 0 tout les champs d'erreurs
         alertSociete.style.display = "none";
         inputSociete.style.borderColor = "";
         inputSociete.style.boxShadow = "";

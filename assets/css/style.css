@@ -168,7 +168,12 @@ ul ul a {
     position: relative;
 }
 
-#content>span.arrows {
+#content>div.arrows {
+    transition: all 0.3s;
+    position: absolute;
+}
+
+#content>div.arrows-end {
     transition: all 0.3s;
     position: absolute;
     width: 55px;
